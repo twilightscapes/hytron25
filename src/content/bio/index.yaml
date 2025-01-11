@@ -1,10 +1,10 @@
-title: Welcome to your web app!
-tagline: Please watch the videos above
+title: Hytron Manufacturing
+tagline: Contract manufacturing service provider
 description: >-
-  These videos are designed to show you how to quickly configure Pirate and how
-  to get everything set up on your new web app. 
+  Our manufacturing capabilities range from prototype fabrication to close
+  tolerance machining at the sub-assembly level through complete end-to-end
+  manufacturing in production volumes to support your requirements.
 image: /images/bio/image.webp
-subheading: Thank you!
-subcontent: For becoming a pirate!
-cta: Keystatic-admin
-showSocial: true
+subheading: On Time & On Budget
+cta: Request A Quote
+showSocial: false

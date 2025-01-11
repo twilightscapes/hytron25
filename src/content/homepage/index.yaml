@@ -1,29 +1,31 @@
-showFeature: false
+showFeature: true
 featureImage:
   src: /images/homepage/featureImage/src.webp
   alt: Become A PIRATE!
 youtube:
   discriminant: false
-cta: Keystatic Cloud Sign Up
+cta: Contact Us Today
 showBioOnHome: true
 showApp: false
 showHomeGallery: false
 showResume: false
-showPosts: true
+showPosts: false
 showMore: true
-showFaqOnHome: false
-showTestOnHome: false
-pitch: How It Works
-pitch2: Social Media That YOU Control
-pitch3: High Seas Freedom
-featureOrder: .nan
+showFaqOnHome: true
+showTestOnHome: true
+pitch: How can Hytron help your company
+pitch2: Our Capabilities
+pitch3: More About Hytron
+featureOrder: 1
 bioOrder: 2
 appOrder: .nan
 galleryOrder: .nan
-postsOrder: 1
+postsOrder: .nan
 resumeOrder: .nan
-faqOrder: .nan
-testimonialsOrder: .nan
-infoblockOrder: .nan
-infoblock2Order: .nan
-infoblock3Order: .nan
+faqOrder: 5
+testimonialsOrder: 7
+infoblockOrder: 3
+infoblock2Order: 4
+infoblock3Order: 6
+faqsectiontitle: Frequently Asked Questions
+testimonialtitle: Our Customers and Partners
