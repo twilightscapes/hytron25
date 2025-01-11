@@ -9,7 +9,7 @@ showBioOnHome: true
 showApp: false
 showHomeGallery: true
 showResume: false
-showPosts: false
+showPosts: true
 showMore: true
 showFaqOnHome: true
 showTestOnHome: true

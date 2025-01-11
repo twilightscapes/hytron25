@@ -57,7 +57,7 @@ const showSwitch = photoSettings?.showSwitch;
 const siteSettings = await getEntry('siteSettings', 'main');
 const { defaultView } = siteSettings.data;
 ---
-<div style="position:relative;">
+
 
 
 
@@ -82,7 +82,7 @@ const { defaultView } = siteSettings.data;
 
 
 
-<div class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`} style="padding-top:20px">
+<div class={`homegallery contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`} style="padding-top:20px;">
   <div class="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }} />
 
 
@@ -109,16 +109,16 @@ const { defaultView } = siteSettings.data;
 <GalleryLightbox client:only="react" images={allImages} showCaptions={showCaptions} />
 
 
-</div>
+
 
 
 <style>
 
 
 .post-card1 {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   border-radius: var(--border-radius);
 }
 img{border-radius: var(--border-radius) !important;}
