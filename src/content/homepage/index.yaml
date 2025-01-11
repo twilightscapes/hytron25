@@ -1,4 +1,4 @@
-showFeature: true
+showFeature: false
 featureImage:
   src: /images/homepage/featureImage/src.webp
   alt: Become A PIRATE!
@@ -7,7 +7,7 @@ youtube:
 cta: Contact Us Today
 showBioOnHome: true
 showApp: false
-showHomeGallery: false
+showHomeGallery: true
 showResume: false
 showPosts: false
 showMore: true
@@ -16,10 +16,10 @@ showTestOnHome: true
 pitch: How can Hytron help your company
 pitch2: Our Capabilities
 pitch3: More About Hytron
-featureOrder: 1
+featureOrder: 9
 bioOrder: 2
 appOrder: .nan
-galleryOrder: .nan
+galleryOrder: 1
 postsOrder: .nan
 resumeOrder: .nan
 faqOrder: 5

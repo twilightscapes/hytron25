@@ -1,7 +1,14 @@
-galleryMode: directory
-showCaptions: true
+galleryMode: keystatic
+showCaptions: false
 showBioOnPhotos: false
 showFaqsOnPhotos: false
 showTestimonialsOnPhotos: false
-showGallerySelector: true
-galleryImages: []
+showGallerySelector: false
+showSwitch: false
+galleryImages:
+  - image: /images/galleryImages/0/image.webp
+    caption: Banner 1
+  - image: /images/galleryImages/1/image.webp
+    caption: Banner 2
+  - image: /images/galleryImages/2/image.webp
+    caption: banner 3
