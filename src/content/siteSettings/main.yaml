@@ -2,8 +2,8 @@ logoImage: /images/logo/logoImage.png
 showHeader: true
 showLogo: true
 showHome: false
-showTheme: true
-showSwitch: true
+showTheme: false
+showSwitch: false
 showSearch: false
 showFooter: true
 defaultView: swipe
