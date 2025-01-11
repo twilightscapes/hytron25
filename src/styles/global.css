@@ -295,7 +295,7 @@ button.topper{background:var(--theme-header) !important;}
 	  
 	  .sliderSpacer{display:none;}
 	  
-	  .slider .sliderSpacer{display:block; width:50%; height:50% ; }
+	  .slider .sliderSpacer{display:block; width:50%; height:50% ; margin-left: 0;}
 	  
 
 #feature .homeCTA{
@@ -340,7 +340,7 @@ button.topper{background:var(--theme-header) !important;}
 		display: flex;
 		flex-direction: row;
 		-webkit-overflow-scrolling: touch;
-		gap: 15vw;
+		gap: 5vw;
 		overscroll-behavior: contain;
 		scroll-snap-type: y mandatory;
 		transition: transform .3s;
@@ -350,7 +350,7 @@ button.topper{background:var(--theme-header) !important;}
 		z-index: 0;
 		position: relative;
 		top: 0;
-		padding:0 10vw;
+		padding:0 2%;
 	  }
 	  
 	  .horizontal-slider {
