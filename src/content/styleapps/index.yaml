@@ -16,4 +16,4 @@ customCSS: >-
   .topmenu li a{font-weight:bold; font-style:italic;
   font-size:clamp(0.8rem,2.3vw,2.5rem);} .panel{backdrop-filter: blur(20px)
   !important;
-    -webkit-backdrop-filter: blur(20);}  iframe.virtualtour{filter: invert(90%) grayscale(1);}  body:has(.home) #footer{background: var(--theme-header); color:#fff;} .quotecard img{filter: invert(90%) grayscale(1) !important;} #profiletop img {filter: invert(10%) grayscale(1) !important;}
+    -webkit-backdrop-filter: blur(20);}  iframe.virtualtour{filter: invert(90%) grayscale(1);}  body:has(.home) #footer{background: var(--theme-header); color:#fff; display:flex !important;} .quotecard img{filter: invert(90%) grayscale(1) !important;} #profiletop img {filter: invert(10%) grayscale(1) !important;}
