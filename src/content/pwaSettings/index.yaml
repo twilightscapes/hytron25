@@ -5,10 +5,10 @@ shortName: Hytron
 location: >-
   https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26543.65755410009!2d-118.03622400000002!3d33.735923!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25ec2765e2e5%3A0x9bbb0660936d052e!2sHytron%20Manufacturing%20Co!5e0!3m2!1sen!2sus!4v1736613421719!5m2!1sen!2sus
 screenshot: /images/pwa/screenshot.png
-description: Become A PIRATE!
+description: Quality Manufacturing - Precision Parts - done right AND on time
 themeColor: rgba(0, 0, 0, 1)
 backgroundColor: rgba(0, 0, 0, 1)
 startUrl: /
 display: standalone
-icon192: /images/pwa/icon192.webp
-icon512: /images/pwa/icon512.webp
+icon192: /images/pwa/icon192.png
+icon512: /images/pwa/icon512.png
