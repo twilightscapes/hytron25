@@ -9,7 +9,7 @@ showFooter: true
 defaultView: swipe
 showTitles: true
 showDates: false
-enableImageBlur: true
+enableImageBlur: false
 showSocial: false
 showCheck: false
 showTags: true
