@@ -16,16 +16,16 @@ showTestOnHome: true
 pitch: How can Hytron help your company
 pitch2: Our Capabilities
 pitch3: More About Hytron
-featureOrder: 9
-bioOrder: 2
+featureOrder: 1
+bioOrder: 3
 appOrder: .nan
-galleryOrder: 1
+galleryOrder: 2
 postsOrder: .nan
 resumeOrder: .nan
-faqOrder: 5
+faqOrder: 6
 testimonialsOrder: 7
-infoblockOrder: 3
-infoblock2Order: 4
-infoblock3Order: 6
+infoblockOrder: 4
+infoblock2Order: 5
+infoblock3Order: 7
 faqsectiontitle: Frequently Asked Questions
 testimonialtitle: Our Customers and Partners
