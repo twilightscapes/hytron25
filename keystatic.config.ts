@@ -109,6 +109,7 @@ export default config({
         ctaUrl: fields.text({ label: 'CTA Url', description: 'The location of your CTA', defaultValue: '/', validation: { length: { min: 1 } } }),
         description: fields.text({ label: 'Description', description: 'The description for the CTA', multiline: true }),
         showFancy: fields.checkbox({ label: 'Show Fancy Button', description: 'Use the Fancy style with animated button', defaultValue: true }),
+        showTransition: fields.checkbox({ label: 'Hide page transition', description: 'Hide the view transition on page change', defaultValue: false }),
       },
       slugField: 'description'
     }),
@@ -321,20 +322,6 @@ export default config({
           publicPath: '/images/logo',
         }),
         divider: fields.empty(),
-        showHeader: fields.checkbox({ label: 'Show Header', description: 'Hide/Show the main site header', defaultValue: true }),
-        showLogo: fields.checkbox({ label: 'Show Logo', description: 'Hide/Show the logo in the header', defaultValue: true }),
-        showHome: fields.checkbox({ label: 'Show Home Link', description: 'Hide/Show the Home Link', defaultValue: true }),
-        showTheme: fields.checkbox({ label: 'Show Theme', description: 'Hide/Show the theme selector', defaultValue: true }),
-        showSwitch: fields.checkbox({ label: 'Show Switch', description: 'Hide/Show the layout selector', defaultValue: true }),
-        showSearch: fields.checkbox({ label: 'Show Search', description: 'Hide/Show the search in the header', defaultValue: true }),
-        showFooter: fields.checkbox({ label: 'Show Footer', description: 'Hide/Show the Footer', defaultValue: true }),
-        
-        divider2: fields.empty(),
-
-        
-
-
-        divider3: fields.empty(),
         defaultView: fields.select({
           label: 'Default View (sets whether to show grid mode or swipe mode by default',
           options: [
@@ -343,6 +330,21 @@ export default config({
           ],
           defaultValue: 'grid',
         }),
+        MAX_POSTS: fields.number({ label: 'Number of posts to display on home page', defaultValue: 3 }),
+        MAX_POSTS_PER_PAGE: fields.number({ label: 'Number of posts to display on other pages', defaultValue: 3 }),
+        divider2: fields.empty(),
+
+        showHeader: fields.checkbox({ label: 'Show Header', description: 'Hide/Show the main site header', defaultValue: true }),
+        showLogo: fields.checkbox({ label: 'Show Logo', description: 'Hide/Show the logo in the header', defaultValue: true }),
+        showHome: fields.checkbox({ label: 'Show Home Link', description: 'Hide/Show the Home Link', defaultValue: true }),
+        showTheme: fields.checkbox({ label: 'Show Theme', description: 'Hide/Show the theme selector', defaultValue: true }),
+        showSwitch: fields.checkbox({ label: 'Show Switch', description: 'Hide/Show the layout selector', defaultValue: true }),
+        showSearch: fields.checkbox({ label: 'Show Search', description: 'Hide/Show the search in the header', defaultValue: true }),
+        showFooter: fields.checkbox({ label: 'Show Footer', description: 'Hide/Show the Footer', defaultValue: true }),
+        showCheck: fields.checkbox({ label: 'Hide Pirate promo', description: 'Hide/Show the Pirate info', defaultValue: true }),
+
+
+  
         showTitles: fields.checkbox({ label: 'Show Post Titles', description: 'Hide/Show the post titles', defaultValue: false }),
         showDates: fields.checkbox({ label: 'Show Dates', description: 'Hide/Show the post dates', defaultValue: true }),
         enableImageBlur: fields.checkbox({ 
@@ -350,15 +352,17 @@ export default config({
           defaultValue: true 
         }),
         showSocial: fields.checkbox({ label: 'Show Social Links in Posts' }),
-        showCheck: fields.checkbox({ label: 'Show Pirate Link', description: 'Hide/Show the Pirate Link', defaultValue: true }),
+
         showTags: fields.checkbox({ label: 'Show Post Tags', description: 'Hide/Show the post tags', defaultValue: false }),
-        MAX_POSTS: fields.number({ label: 'Number of posts to display on home page', defaultValue: 3 }),
-        MAX_POSTS_PER_PAGE: fields.number({ label: 'Number of posts to display on other pages', defaultValue: 3 }),
+        showShare: fields.checkbox({ label: 'Show Share section on posts', description: 'Hide/Show the share this copy button on posts', defaultValue: false }),
+    
+  
 
         
-        divider4: fields.empty(),
-        showShare: fields.checkbox({ label: 'Show Share section on posts', description: 'Hide/Show the share this copy button on posts', defaultValue: false }),
 
+
+
+        
 
         
       },

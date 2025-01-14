@@ -106,7 +106,7 @@ const pageOgImage = ogImage || meta?.ogImage;
 			</Header>
 		</div>
 		<div id="top"></div>
-				<main id="main"  transition:animate="slide" >
+				<main id="main" transition:animate="slide" >
 					
 					<slot/>
 				</main>
@@ -114,58 +114,12 @@ const pageOgImage = ogImage || meta?.ogImage;
 					<Footer />
 					)}
 								</body>
-								<script>
-									function initializeScrollListener() {
-										const horizontalScrollClassName = 'horizontal-slider';
-										const scrollMultiplier = .5;
+								
 
-										function applyScrollBehavior(element: HTMLElement) {
-											const handleWheel = (event: WheelEvent) => {
-												if (element.scrollWidth > element.clientWidth) {
-													event.preventDefault();
-													const scrollAmount = (event.deltaX || event.deltaY) * scrollMultiplier;
-													element.scrollLeft += scrollAmount;
-												}
-											};
 
-											element.addEventListener('wheel', handleWheel, { passive: false });
 
-											let touchStartX: number | null = null;
-											element.addEventListener('touchstart', (event: TouchEvent) => {
-												touchStartX = event.touches[0].clientX;
-											}, { passive: true });
 
-											element.addEventListener('touchmove', (event: TouchEvent) => {
-												if (touchStartX === null) return;
-												const touchEndX = event.touches[0].clientX;
-												const diff = touchStartX - touchEndX;
-												element.scrollLeft += diff;
-												touchStartX = touchEndX;
-											}, { passive: true });
-										}
 
-										function checkAndApplyScroll() {
-											document.querySelectorAll(`.${horizontalScrollClassName}`).forEach((el) => {
-												if (el instanceof HTMLElement) {
-													applyScrollBehavior(el);
-												}
-											});
-										}
-
-										// Initial application
-										checkAndApplyScroll();
-
-										// Set up a MutationObserver to watch for changes in the DOM
-										const observer = new MutationObserver(checkAndApplyScroll);
-										observer.observe(document.body, { childList: true, subtree: true });
-
-										// Also check when the custom event is fired
-										window.addEventListener('viewModeChanged', checkAndApplyScroll);
-									}
-
-									document.addEventListener('DOMContentLoaded', initializeScrollListener);
-									document.addEventListener('astro:page-load', initializeScrollListener);
-								</script>
 	<script is:inline define:vars={{ enableImageBlur }}>
 		function initializeImageLoader() {
 			const blurEnabled = typeof enableImageBlur !== 'undefined' ? enableImageBlur : true;
@@ -224,7 +178,7 @@ const pageOgImage = ogImage || meta?.ogImage;
 						}, { passive: true });
 					}
 				});
-			}, { threshold: 0.5 });
+			}, { threshold: 0.1 });
 
 			document.querySelectorAll(`.${horizontalScrollClassName}`).forEach(el => {
 				observer.observe(el);

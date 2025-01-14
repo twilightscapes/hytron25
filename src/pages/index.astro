@@ -290,7 +290,10 @@ flex-direction: column;
 									title: cta.data.title,
 									description: cta.data.description || '',
 									ctaUrl: cta.data.ctaUrl,
-									showFancy: cta.data.showFancy
+									showFancy: cta.data.showFancy,
+                  showTransition: cta.data.showTransition
+                  
+                  
 								} : undefined
 							}} />;
 						case 'bio':
@@ -359,11 +362,20 @@ flex-direction: column;
         description={homeCTA.data.description || ''}
         ctaUrl={homeCTA.data.ctaUrl}
         showFancy={homeCTA.data.showFancy}
+        showTransition={homeCTA.data.showTransition}
       />
     </section>
   )}
 
+{!showCheck && 
 
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent backdrop-blur-lg">Buy This Website</h2>
+<stripe-pricing-table pricing-table-id="prctbl_1Qe7TQIbXHwBH2q3OBiMeCaf"
+publishable-key="pk_test_51Qe75VIbXHwBH2q3XjaYKRUr0AUGprwFX2ottMpaxZqAqiEoBS5nGA4GatemfTmUHs6CSPWFhBzPJjH2qv0JuLLI00421mokn9">
+</stripe-pricing-table><br /><br />
+
+}
 
 
 

@@ -62,6 +62,7 @@ const collections = {
       ctaUrl: z.string().optional(),
       description: z.string().optional(),
       showFancy: z.boolean().optional(),
+      showTransition: z.boolean().optional(),
     }),
   }),
 
