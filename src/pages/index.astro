@@ -277,7 +277,7 @@ flex-direction: column;
 )}
 
 <PageLayout title={homeContent.data.title} description={pwaSettings.data.description}>
-	<div class="scroll-snap-container flex flex-col home">
+	<div class="scroll-snap-container prose-pirate flex flex-col home">
 		{sortedSections.map(section => (
 			<section class={section.name === 'resume' ? 'resume' : ''}>
 				{(() => {
@@ -324,10 +324,11 @@ flex-direction: column;
               case 'posts':
 							return (
 								<>
-									<h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent backdrop-blur-lg" style="margin-bottom:2vh;">{homeContent.data.postsectiontitle}</h2>
-									<div class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`}>
 									
-
+									<div style="padding:2vh 0" class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`}>
+									
+                    
+                    
                     {allPostsSorted.map((p) => <PostPreview post={p} withDesc />)}
 										{ShowMore && (
 											<a class="viewmore no-underline text-white text-center block" href="/posts/" style="padding:1vh 1rem; margin:0 50px 50px 50px;">

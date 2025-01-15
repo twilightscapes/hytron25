@@ -268,6 +268,10 @@ body {
 
 /* #gobacker.button{margin:0 auto; max-width: 200px; height:60px; padding:1rem; } */
 
+
+
+
+
 #gobacker {position: absolute !important; right:60px !important; background:var(--theme-header) !important;}
 
 button.topper{background:var(--theme-header) !important;}
@@ -508,8 +512,8 @@ button.topper{background:var(--theme-header) !important;}
 
 
 	.panelblur {
-		backdrop-filter: blur(28px);
-		-webkit-backdrop-filter: blur(28px);
+		backdrop-filter: blur(78px);
+		-webkit-backdrop-filter: blur(78px);
 		/* background:rgba(0, 0, 0, 0.6); */
 		text-shadow: 0 1px 1px var(--theme-header);
 	}

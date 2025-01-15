@@ -8,7 +8,7 @@ import Header from "@/components/layout/Header.astro";
 import { siteConfig } from "@/site-config";
 // import SiteLinks from '@/components/SocialList.astro';
 import DynamicTheme from '@/components/DynamicTheme.astro';
-import { ViewTransitions } from 'astro:transitions';
+// import { ViewTransitions } from 'astro:transitions';
 
 
 
@@ -45,9 +45,9 @@ const pageOgImage = ogImage || meta?.ogImage;
 
 ---
 
-<html lang={siteConfig.lang} data-theme="light" transition:name="root" transition:animate="none">
+<html lang={siteConfig.lang} data-theme="light">
 	<head>
-		<ViewTransitions />
+		<!-- <ViewTransitions /> -->
 		<script>
 			function getInitialTheme() {
 				const savedTheme = localStorage.getItem('theme');
@@ -71,7 +71,7 @@ const pageOgImage = ogImage || meta?.ogImage;
 	
 	<body>
 		<SkipLink />
-				<div id="nav-container">
+				<div id="nav-container"></div>
 
 				<!-- <SiteLinks /> -->
 
@@ -101,12 +101,12 @@ const pageOgImage = ogImage || meta?.ogImage;
 				  </style> -->
 
 		
-			<Header transition:persist>
+			<Header>
 
 			</Header>
-		</div>
+		
 		<div id="top"></div>
-				<main id="main" transition:animate="slide" >
+				<main id="main" >
 					
 					<slot/>
 				</main>
