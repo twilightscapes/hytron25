@@ -246,7 +246,10 @@ const sections: Section[] = [
 
 const sortedSections = sections  .filter(section => section.show)
   .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+
 ---
+
 <style>
 	.scroll-snap-container {
 flex-direction: column;
@@ -262,21 +265,24 @@ flex-direction: column;
 
 </style>
 
-{backgroundVideo && (
-  <iframe
-    src={backgroundVideo}
-    title="video title"
-    width="100%"
-    height="800"
-    frameborder="0"
-    allowfullscreen
-    class="vidbox"
-    style="height:100vh !important; position:absolute; top:1; z-index: -1;"
-    loading="lazy"
-></iframe>
-)}
+
 
 <PageLayout title={homeContent.data.title} description={pwaSettings.data.description}>
+
+  {backgroundVideo && (
+    <iframe
+      src={backgroundVideo}
+      title="video title"
+      width="100%"
+      height="800"
+      frameborder="0"
+      allowfullscreen
+      class="vidbox"
+      style="height:100vh !important; position:absolute; top:1; z-index: -1;"
+      loading="lazy"
+  ></iframe>
+  )}
+  
 	<div class="scroll-snap-container prose-pirate flex flex-col home">
 		{sortedSections.map(section => (
 			<section class={section.name === 'resume' ? 'resume' : ''}>
@@ -325,9 +331,9 @@ flex-direction: column;
 							return (
 								<>
 									
-									<div style="padding:2vh 0" class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`}>
+									<div style="padding:2vh 3%" class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`}>
 									
-                    
+                    <h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent backdrop-blur-lg" style="display:block; margin-bottom:2vh; width:100%;">{homeContent.data.postsectiontitle}</h2>
                     
                     {allPostsSorted.map((p) => <PostPreview post={p} withDesc />)}
 										{ShowMore && (
@@ -367,6 +373,9 @@ flex-direction: column;
       />
     </section>
   )}
+
+
+<br /><br /><br />
 
 {!showCheck && 
 
