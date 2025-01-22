@@ -23,8 +23,8 @@ const language = await getEntry('language', 'index');
 
 
 
-const styleAppearance = await getEntry('styleapps', 'index');
-const { backgroundVideo } = styleAppearance.data;
+
+
 
 if (!siteSettings || !pwaSettings || !homeContent || !language) {
   throw new Error('Required content settings not found');
@@ -269,19 +269,7 @@ flex-direction: column;
 
 <PageLayout title={homeContent.data.title} description={pwaSettings.data.description}>
 
-  {backgroundVideo && (
-    <iframe
-      src={backgroundVideo}
-      title="video title"
-      width="100%"
-      height="800"
-      frameborder="0"
-      allowfullscreen
-      class="vidbox"
-      style="height:100vh !important; position:absolute; top:1; z-index: -1;"
-      loading="lazy"
-  ></iframe>
-  )}
+  
   
 	<div class="scroll-snap-container prose-pirate flex flex-col home">
 		{sortedSections.map(section => (
@@ -333,8 +321,13 @@ flex-direction: column;
 									
 									<div style="padding:2vh 3%" class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`}>
 									
-                    <h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent backdrop-blur-lg" style="display:block; margin-bottom:2vh; width:100%;">{homeContent.data.postsectiontitle}</h2>
                     
+                    {homeContent.data.postsectiontitle && (
+                      <h2 class="posties glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent backdrop-blur-lg" style="display:grid; place-content:center; margin-bottom:2vh; min-width:50%; width:100%;">
+                        {homeContent.data.postsectiontitle}
+                      </h2>
+                    )}
+
                     {allPostsSorted.map((p) => <PostPreview post={p} withDesc />)}
 										{ShowMore && (
 											<a class="viewmore no-underline text-white text-center block" href="/posts/" style="padding:1vh 1rem; margin:0 50px 50px 50px;">

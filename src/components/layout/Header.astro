@@ -8,10 +8,11 @@ import { getMenuLinks, siteConfig } from "@/site-config";
 import GoBack from "@/components/GoBack.astro";
 const siteSettings = await getEntry('siteSettings', 'main');
 const { showHeader, showLogo, showTheme, showSearch, showSwitch, showHome, logoImage, defaultView, showCheck } = siteSettings.data;
-
+const language = await getEntry('language', 'index');
 
 const styleAppearance = await getEntry('styleapps', 'index');
 const { backgroundImage } = styleAppearance.data;
+const { backgroundVideo } = styleAppearance.data;
 
 const url = new URL(Astro.request.url);
 const menuLinks = await getMenuLinks();
@@ -31,8 +32,9 @@ const menuLinks = await getMenuLinks();
             class="headerlogo"
             loading="eager"
             fetchpriority="high"
-            width="100%"
-            height="60"
+            width="auto"
+            height="auto"
+            style="max-height:60px;"
           />
         ) : (
           <span class="text-lg font-bold logotext" style="margin-left:10px;">{siteConfig.author}</span>
@@ -61,7 +63,7 @@ const menuLinks = await getMenuLinks();
 )}
 
 
-<div id="missioncontrol" class="missioncontrol1 sitecontrols flex justify-center items-center" style="padding-right:2vw; gap:3vw;">
+<div id="missioncontrol" class="missioncontrol1 sitecontrols flex justify-center items-center panel" style="padding-right:2vw; gap:3vw;">
   
   <!-- {showCheck && <div style="position:absolute; bottom:1vh; left: 1vw; opacity:.2;"><BlueCheck /></div>} -->
   
@@ -89,13 +91,13 @@ const menuLinks = await getMenuLinks();
 
 <button
 aria-label="Back to Top"
-class="z-90 bottom-0 fixed end-2 flex h-10 w-10 translate-y-24 items-center justify-center rounded-md ring-zinc-400 hover:ring-2 opacity-0 transition-all duration-300 hover:border-zinc-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-85 sm:end-2 sm:h-10 sm:w-10 topper"
+class="backup z-90 bottom-0 fixed end-2 flex h-10 w-10 translate-y-24 items-center justify-center rounded-md ring-zinc-400 hover:ring-2 opacity-0 transition-all duration-300 hover:border-zinc-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-85 sm:end-2 sm:h-10 sm:w-10 topper"
 data-show="false"
 id="to-top-btn"
 style="flex-direction: column;"
 >
 <svg  class="w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M14 20h-4v-9l-3.5 3.5l-2.42-2.42L12 4.16l7.92 7.92l-2.42 2.42L14 11z"/></svg>
-<span class="--theme-header" style="font-size:10px; font-weight: bold;">Top</span>
+<span class="--theme-header" style="font-size:10px; font-weight: bold;">{language.data.top}</span>
 </button>
 
 </div>
@@ -104,6 +106,20 @@ style="flex-direction: column;"
   <img class="backimage w-2.5 h-2.5" src={backgroundImage} alt="Default Background" width="10" height="10" />
   )}
 
+
+{backgroundVideo && (
+  <iframe
+    src={backgroundVideo}
+    title="video title"
+    width="100%"
+    height="800"
+    frameborder="0"
+    allowfullscreen
+    class="vidbox"
+    style="height:100vh !important;"
+    loading="lazy"
+></iframe>
+)}
 
 
 <script lang="ts">

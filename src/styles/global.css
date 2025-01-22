@@ -288,6 +288,15 @@ button.topper{background:var(--theme-header) !important;}
 		object-fit:cover;
 	  }
 
+	  .vidbox{
+		height: 100vh;
+		width: 100vw;
+		position: fixed;
+		z-index:-2;
+		top:0;
+		object-fit:cover;
+	  }
+
 
 	 .featured img{
 		object-fit:contain !important; 
@@ -516,6 +525,7 @@ button.topper{background:var(--theme-header) !important;}
 		-webkit-backdrop-filter: blur(78px);
 		/* background:rgba(0, 0, 0, 0.6); */
 		text-shadow: 0 1px 1px var(--theme-header);
+		border-radius: var(--border-radius);
 	}
 
 

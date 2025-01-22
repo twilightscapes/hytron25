@@ -40,7 +40,7 @@ const socialLinks = (await getCollection('socialLinks'))
 </style> -->
 
 
-  <ul class="flex flex-wrap items-center gap-2 pwa-persistent-nav prose dark:prose-invert" style="max-width:none; justify-content:center; ">
+  <ul class="flex flex-wrap items-center gap-2 pwa-persistent-nav " style="max-width:none; justify-content:center; ">
     {socialLinks.map((link) => (
       <li 
         class="flex" 
@@ -65,7 +65,7 @@ const socialLinks = (await getCollection('socialLinks'))
     const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                   document.referrer.includes('android-app://');
     
-    console.log('PWA Status:', isPWA);
+    console.log('PWA Status:', isPWA);x
                   
     document.querySelectorAll('[data-standalone-only="true"]').forEach((el) => {
       if (el instanceof HTMLElement) {
