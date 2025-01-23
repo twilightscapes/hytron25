@@ -1,5 +1,6 @@
 showName: true
 showPhone: true
+showMessage: true
 showUpload: true
 showExtraField: false
 extraFieldLabel: Plans

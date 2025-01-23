@@ -862,8 +862,11 @@ export default config({
       label: 'Contact Page',
       path: 'src/content/contactPage/',
       schema: {
+        content: fields.text({ label: 'Content', multiline: true }),
+        divider1: fields.empty(),
         showName: fields.checkbox({ label: 'Show Name Field', defaultValue: true }),
         showPhone: fields.checkbox({ label: 'Show Phone Field', defaultValue: true }),
+        showMessage: fields.checkbox({ label: 'Show Message Field', defaultValue: true }),
         showUpload: fields.checkbox({ label: 'Show Upload Field', defaultValue: true }),
         showExtraField: fields.checkbox({ label: 'Show Extra Field', defaultValue: false }),
         extraFieldLabel: fields.text({ label: 'Extra Field Label', description: 'Label for the extra text field' }),

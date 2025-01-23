@@ -44,6 +44,7 @@ const contactPage = defineCollection({
     content: z.string().optional(),
     showName: z.boolean().optional(),
     showPhone: z.boolean().optional(),
+    showMessage: z.boolean().optional(),
     showUpload: z.boolean().optional(),
     extraFieldLabel: z.string().optional(),
     showExtraField: z.boolean().optional(),

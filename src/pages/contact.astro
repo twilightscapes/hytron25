@@ -10,18 +10,17 @@ const meta = {
 
 const reader = createReader(process.cwd(), keystaticConfig);
 const contactPage = await reader.singletons.contactPage.read();
-console.log(contactPage);
-
 
 const showName = contactPage?.showName ?? true;
 const showPhone = contactPage?.showPhone ?? true;
 const showUpload = contactPage?.showUpload ?? true;
+const showMessage = contactPage?.showMessage ?? true;
 const showExtraField = contactPage?.showExtraField ?? false;
 const extraFieldLabel = contactPage?.extraFieldLabel ?? 'Extra Field';
 const showMap = contactPage?.showMap ?? true;
 const showExtraField2 = contactPage?.showExtraField2 ?? false;
 const extraFieldLabel2 = contactPage?.extraFieldLabel2 ?? 'Extra Field 2';
-const content = contactPage?.content ?? '';
+const content = (contactPage?.content ?? '').replace(/\n/g, '<br>');
 
 import App from '@/components/App.astro';
 ---
@@ -86,11 +85,11 @@ import App from '@/components/App.astro';
 
 <PageLayout meta={meta}>
   <br />
-  <div class="flexbutt" style={`gap: 4vw; padding: 0 4%; ${showMap ? '' : 'justify-content: center;'}`}>
-    {content && (
-      <div class="content-area" style="padding-bottom: 2vh;" dangerouslySetInnerHTML={{ __html: content }}>
+  {content && (
+    <div class="content-area" style="padding-bottom: 2vh; max-width: 500px; margin:0 auto;" set:html={content}>
       </div>
     )}
+  <div class="flexbutt" style={`gap: 4vw; padding: 0 4%; ${showMap ? '' : 'justify-content: center;'}`}>
     <form
       class="flexcheek"
       name="contact"
@@ -106,7 +105,7 @@ import App from '@/components/App.astro';
       {showName && (
         <p>
           <label html-for="name" aria-label="Your Name">
-            <input type="text" id="name" name="name" placeholder="Your Name" required />
+            <input type="text" id="name" name="name" placeholder="Your Name" />
           </label>
         </p>
       )}
@@ -141,13 +140,15 @@ import App from '@/components/App.astro';
         </p>
       )}
 
-      <br />
+    
 
+      {showMessage && (
       <p>
         <label html-for="message" aria-label="Your Message">
-          <textarea id="message" name="message" placeholder="Message" required></textarea>
+          <textarea id="message" name="message" placeholder="Message"></textarea>
         </label>
       </p>
+      )}
 
       {showUpload && (
         <p>
