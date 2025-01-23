@@ -1,0 +1,7 @@
+showName: true
+showPhone: true
+showUpload: true
+showExtraField: false
+extraFieldLabel: Plans
+showExtraField2: false
+showMap: true
