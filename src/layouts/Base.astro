@@ -8,7 +8,7 @@ import Header from "@/components/layout/Header.astro";
 import { siteConfig } from "@/site-config";
 // import SiteLinks from '@/components/SocialList.astro';
 import DynamicTheme from '@/components/DynamicTheme.astro';
-// import { ViewTransitions } from 'astro:transitions';
+
 
 
 
@@ -26,6 +26,7 @@ interface Props {
     articleDate?: string;
     ogImage?: string;
   };
+  themeMode: string;
   title?: string;
   description?: string;
   articleDate?: string;
@@ -56,7 +57,7 @@ const pageOgImage = ogImage || meta?.ogImage;
             document.documentElement.dataset.theme = getInitialTheme();
         </script>
         
-        <ThemeProvider />
+        <ThemeProvider themeMode={siteConfig.themeMode} />
         <BaseHead 
             title={pageTitle} 
             description={pageDescription} 

@@ -88,6 +88,7 @@ const collections = {
     type: 'data',
     schema: z.object({
       title: z.string().optional(),
+      showTwocol: z.boolean().optional(),
       showTitle: z.boolean().optional(),
       image: z.string().optional(),
       imageAlt: z.string().optional(),
@@ -327,6 +328,7 @@ const collections = {
       viewall: z.string().optional(),
       shareText: z.string().optional(),
       copyButton: z.string().optional(),
+      siteDisclaimer: z.string().optional(),
     }),
   }),
 
