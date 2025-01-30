@@ -35,13 +35,14 @@ if (!siteSettings || !pwaSettings || !homeContent || !language) {
 
 const { defaultView, MAX_POSTS, showCheck } = siteSettings.data;
 import App from '@/components/App.astro';
+import { component } from "@keystatic/core";
 const reader = createReader(process.cwd(), keystaticConfig);
 
 const resumeSettings = await getEntry('resumeSettings', 'index');
 
 const homepage = await reader.singletons.home.read();
 const cta = homeContent.data.cta ? await getEntry('ctas', homeContent.data.cta) : null;
-const showResume = homepage?.showResume ?? false;
+
 
 const homeCTA = homeContent.data.cta ? await getEntry('ctas', homeContent.data.cta) : null;
 
@@ -142,15 +143,11 @@ if (selectedPitchSlug3) {
     };
   }
 }
-const showBioOnHome = homepage?.showBioOnHome ?? false;
-const showFaqOnHome = homepage?.showFaqOnHome ?? false;
-const showTestOnHome = homepage?.showTestOnHome ?? false;
-const showFeature = homepage?.showFeature ?? false;
-const showPosts = homepage?.showPosts ?? false;
-const ShowMore = homepage?.showMore ?? false;
-const ShowApp = homepage?.showApp ?? false;
 
-const showHomeGallery = homepage?.showHomeGallery ?? false;
+const ShowMore = homepage?.showMore ?? false;
+
+
+
 
 const allPosts = await getAllPosts();
 const allPostsSorted = sortMDByDate(allPosts, true).slice(0, MAX_POSTS);
@@ -161,36 +158,24 @@ type Section = {
   component: any;
 };
 
-const createSection = (
-  name: string, 
-  show: boolean | undefined, 
-  order: number | null | undefined, 
-  component: any, 
-  defaultOrder: number
-): Section => ({
-  name,
-  show: !!show,
-  order: order ?? defaultOrder,
-  component
-});
 const sections: Section[] = (homeContent.data.sectionOrdering || []).map((sectionName: string, index: number) => {
   switch (sectionName) {
     case 'feature':
-      return createSection('feature', homepage?.showFeature, index, Feature, index);
+      return { name: 'feature', show: true, order: index, component: Feature };
     case 'bio':
-      return createSection('bio', homepage?.showBioOnHome, index, Bio, index);
+      return { name: 'bio', show: true, order: index, component: Bio };
     case 'app':
-      return createSection('app', homepage?.showApp, index, App, index);
+      return { name: 'app', show: true, order: index, component: App };
     case 'gallery':
-      return createSection('gallery', homepage?.showHomeGallery, index, PhotoSection, index);
+      return { name: 'gallery', show: true, order: index, component: PhotoSection };
     case 'posts':
-      return createSection('posts', homepage?.showPosts, index, showPosts, index);
+      return { name: 'posts', show: true, order: index, component: PostPreview };
     case 'faq':
-      return createSection('faq', homepage?.showFaqOnHome, index, Faqs, index);
+      return { name: 'faq', show: true, order: index, component: Faqs };
     case 'testimonials':
-      return createSection('testimonials', homepage?.showTestOnHome, index, Testimonials, index);
+      return { name: 'testimonials', show: true, order: index, component: Testimonials };
     case 'resume':
-      return createSection('resume', homepage?.showResume, index, Resume, index);
+      return { name: 'resume', show: true, order: index, component: Resume };
     case 'infoblock1':
       return {
         name: 'infoblock',

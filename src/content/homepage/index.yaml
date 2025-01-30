@@ -1,27 +1,16 @@
-showFeature: false
 featureImage:
   src: /images/homepage/featureImage/src.webp
   alt: Become A PIRATE!
 youtube:
   discriminant: false
 cta: Contact Us Today
-showBioOnHome: true
-showApp: false
-showHomeGallery: true
-showResume: false
-showPosts: false
 showMore: true
-showFaqOnHome: true
-showTestOnHome: true
 pitch: How can Hytron help your company
 pitch2: Our Capabilities
 pitch3: More About Hytron
 sectionOrdering:
   - gallery
   - bio
-  - resume
-  - feature
-  - posts
   - infoblock1
   - infoblock2
   - infoblock3

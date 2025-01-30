@@ -436,44 +436,74 @@ export default config({
       label: 'Home Page',
       path: 'src/content/homepage/',
       schema: {
-        showFeature: fields.checkbox({ label: 'Show Feature', description: 'Hide/Show the Feature section on home page', defaultValue: false }),
+
+        sectionOrdering: fields.array(
+          fields.select({
+            label: 'Section',
+            options: [
+              { label: 'Feature Section', value: 'feature' },
+              { label: 'Bio Section', value: 'bio' },
+              { label: 'App Section', value: 'app' },
+              { label: 'Gallery Section', value: 'gallery' },
+              { label: 'Posts Section', value: 'posts' },
+              { label: 'Resume Section', value: 'resume' },
+              { label: 'FAQ Section', value: 'faq' },
+              { label: 'Testimonials Section', value: 'testimonials' },
+              { label: 'Content Block 1', value: 'infoblock1' },
+              { label: 'Content Block 2', value: 'infoblock2' },
+              { label: 'Content Block 3', value: 'infoblock3' }
+            ],
+            defaultValue: 'feature'
+          }),
+          {
+            label: 'Home Page Sections',
+            description: 'Drag to reorder sections - position in list determines display order on the page',
+            itemLabel: (props) => props.value,
+          }
+        ),
+
+        divider1: fields.empty(),
+
         featureImage: fields.object({
           src: fields.image({
             label: 'Feature Image',
             directory: 'public/images/homepage',
             publicPath: '/images/homepage',
           }),
-          alt: fields.text({ 
+          alt: fields.text({
             label: 'Featured Image Alt Text',
           }),
         }),
+
+        divider3: fields.empty(),
+
         youtube: fields.conditional(
           fields.checkbox({ label: 'Include YouTube Video' }),
           {
             true: fields.object({
-              url: fields.text({ 
+              url: fields.text({
                 label: 'YouTube Video URL',
                 description: 'Enter the full YouTube video URL'
               }),
-              title: fields.text({ 
+              title: fields.text({
                 label: 'Video Title',
                 description: 'Enter a title for the video (optional, leave blank for no title)',
                 validation: { isRequired: false }
               }),
               controls: fields.checkbox({ label: 'Use YouTube Player Controls' }),
-              useCustomPlayer: fields.checkbox({ 
-                label: 'Use Custom Player Controls', 
-                defaultValue: true 
+              useCustomPlayer: fields.checkbox({
+                label: 'Use Custom Player Controls',
+                defaultValue: true
               }),
               mute: fields.checkbox({ label: 'Mute Video' }),
               loop: fields.checkbox({ label: 'Loop Video' }),
-              start: fields.number({ 
-                label: 'Start Time (seconds)', 
+              start: fields.number({
+                label: 'Start Time (seconds)',
                 defaultValue: 0,
                 validation: { min: 0 }
               }),
-              end: fields.number({ 
-                label: 'End Time (seconds)', 
+              end: fields.number({
+                label: 'End Time (seconds)',
                 validation: { min: 0, isRequired: false }
               }),
               videoOnly: fields.checkbox({ label: 'Video Only', defaultValue: false }),
@@ -483,55 +513,15 @@ export default config({
         ),
 
 
+        showMore: fields.checkbox({ label: 'Show More Button', description: 'Hide/Show the Show More Button (for the posts section above)', defaultValue: false }),
+
+
         cta: fields.relationship({
           label: 'HOME BOTTOM CTA',
           description: 'CTA at the bottom of the homepage',
           collection: 'CTAs',
         }),
-        divider9: fields.empty(),
-        // homeCTA: fields.relationship({
-        //   label: 'BOTTOM CTA',
-        //   description: 'CTA at the bottom of the homepage',
-        //   collection: 'CTAs',
-        // }),
-        divider7: fields.empty(),
-        showBioOnHome: fields.checkbox({
-          label: 'Show Profile Module',
-          description: 'Hide/Show the Profile section on the home page',
-          defaultValue: false,
-        }),
 
-        showApp: fields.checkbox({
-          label: 'Show Map Module',
-          description: 'Hide/Show custom map section on the home page - requires the src url from an embeded google map',
-          defaultValue: false,
-        }),
-
-        showHomeGallery: fields.checkbox({ label: 'Show Home Photo Gallery', description: 'Hide/Show the Photo section on home page', defaultValue: false }),
-
-        showResume: fields.checkbox({
-          label: 'Show Resume',
-          description: 'Hide/Show Resume section on the home page',
-          defaultValue: false,
-        }),
-
-
-
-        showPosts: fields.checkbox({ label: 'Show Posts', description: 'Hide/Show the Posts section on the home page', defaultValue: false }),
-
-        showMore: fields.checkbox({ label: 'Show More Button', description: 'Hide/Show the Show More Button (for the posts section above)', defaultValue: false }),
-
-        showFaqOnHome: fields.checkbox({
-          label: 'Show FAQ Module',
-          description: 'Hide/Show the FAQ accordian section on the home page',
-          defaultValue: false,
-        }),
-
-        showTestOnHome: fields.checkbox({
-          label: 'Show Testimonials Module',
-          description: 'Hide/Show the Testomonials section on the home page',
-          defaultValue: false,
-        }),
 
         divider: fields.empty(),
 
@@ -552,33 +542,8 @@ export default config({
 
         
 
-        divider1: fields.empty(),
-        divider6: fields.empty(),
+
         
-        sectionOrdering: fields.array(
-          fields.select({
-            label: 'Section',
-            options: [
-              { label: 'Feature Section', value: 'feature' },
-              { label: 'Bio Section', value: 'bio' },
-              { label: 'App Section', value: 'app' },
-              { label: 'Gallery Section', value: 'gallery' },
-              { label: 'Posts Section', value: 'posts' },
-              { label: 'Resume Section', value: 'resume' },
-              { label: 'FAQ Section', value: 'faq' },
-              { label: 'Testimonials Section', value: 'testimonials' },
-              { label: 'Content Block 1', value: 'infoblock1' },
-              { label: 'Content Block 2', value: 'infoblock2' },
-              { label: 'Content Block 3', value: 'infoblock3' }
-            ],
-            defaultValue: 'feature'
-          }),
-          {
-            label: 'Section Ordering',
-            description: 'Drag to reorder sections - position in list determines display order',
-            itemLabel: (props) => props.value,
-          }
-        ),
 
         
         divider5: fields.empty(),
