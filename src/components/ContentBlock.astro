@@ -304,17 +304,8 @@ function getCTAButtonClasses(style = 'primary') {
         ''
       )}
       
-      <!-- {ctaPosition === 'after-content' && ctaData?.data && (
-        <div class={`cta-container cta-after-content mt-6 ${ctaAlignmentClasses[ctaAlignment] || ctaAlignmentClasses.left}`}>
-          <a 
-            href={ctaData.data.ctaUrl && ctaData.data.ctaUrl.trim() ? ctaData.data.ctaUrl : '#'}
-            class={`inline-block px-6 py-3 rounded-lg font-semibold transition-colors duration-200 ${getCTAButtonClasses(ctaData.data.style)}`}
-          >
-            {ctaData.data.title}
-          </a>
-        </div>
-      )} -->
     </div>
+
 
     {/* Secondary Content (for two-column layouts) */}
     {(layout === 'two-column' || layout === 'two-column-equal') && (actualSecondaryContent || renderedSecondaryContent) && (
@@ -328,6 +319,7 @@ function getCTAButtonClasses(style = 'primary') {
         )}
       </div>
     )}
+
 
     {/* Video Handling - Bottom/Right positions */}
     {youtube?.discriminant && youtube.value && (videoPosition === 'bottom' || videoPosition === 'right') && (
@@ -358,10 +350,25 @@ function getCTAButtonClasses(style = 'primary') {
         />
       </div>
     )}
+
+
+
   </div>
 
+        {ctaPosition === 'after-content' && ctaData?.data && (
+        <div class={`cta-container cta-after-content mt-6 ${ctaAlignmentClasses[ctaAlignment] || ctaAlignmentClasses.left}`}>
+          <a 
+            href={ctaData.data.ctaUrl && ctaData.data.ctaUrl.trim() ? ctaData.data.ctaUrl : '#'}
+            class={`inline-block px-6 py-3 rounded-lg font-semibold transition-colors duration-200 ${getCTAButtonClasses(ctaData.data.style)}`}
+          >
+            {ctaData.data.title}
+          </a>
+        </div>
+      )}
+
+      
   {/* Bottom CTA */}
-  <!-- {ctaPosition === 'bottom' && ctaData?.data && ctaData.data.ctaUrl && (
+  {ctaPosition === 'bottom' && ctaData?.data && ctaData.data.ctaUrl && (
     <div class={`cta-container cta-bottom mt-6 ${ctaAlignmentClasses[ctaAlignment] || ctaAlignmentClasses.left}`}>
       <a 
         href={ctaData.data.ctaUrl}
@@ -370,7 +377,7 @@ function getCTAButtonClasses(style = 'primary') {
         {ctaData.data.title}
       </a>
     </div>
-  )} -->
+  )}
 </section>
 
 <style>
