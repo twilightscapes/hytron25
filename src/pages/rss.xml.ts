@@ -3,9 +3,9 @@
 			import type { CollectionEntry } from 'astro:content';
 			import type { AstroGlobal } from 'astro';
 
-			type Post = CollectionEntry<'post'>;
+type Post = CollectionEntry<'post'>;
 
-			export async function GET(context: AstroGlobal) {
+export async function GET(context: AstroGlobal) {
 				const posts = await getCollection('post');
 				return rss({
 					title: 'PIRATE Blog',
@@ -15,7 +15,7 @@
 						title: post.data.title,
 						pubDate: post.data.publishDate,
 						description: post.data.description,
-						link: `/post/${post.slug}/`,
+						link: `/post/${post.id}/`,
 					})),
 				});
 			}

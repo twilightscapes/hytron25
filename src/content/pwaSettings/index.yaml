@@ -1,11 +1,24 @@
-showRobots: false
-siteUrl: https://hytron25.netlify.app
+showRobots: true
+siteUrl: https://hytronmanufacturing.com
+title: Hytron Manufacturing is a full-service Contract Manufacturing Service Provider
+description: >-
+  Hytron is a leading provider of precision metal components to a wide range of
+  industries worldwide.
 name: Hytron Manufacturing
 shortName: Hytron
 location: >-
   https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26543.65755410009!2d-118.03622400000002!3d33.735923!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd25ec2765e2e5%3A0x9bbb0660936d052e!2sHytron%20Manufacturing%20Co!5e0!3m2!1sen!2sus!4v1736613421719!5m2!1sen!2sus
+showMap: true
+showName: true
+showPhone: true
+showMessage: true
+showUpload: true
+showExtraField: false
+extraFieldLabel: Extra Field
+showExtraField2: false
+extraFieldLabel2: Extra Field 2
+formContent: 'For all inquiries, please complete the form below: '
 screenshot: /images/pwa/screenshot.png
-description: Quality Manufacturing - Precision Parts - done right AND on time
 themeColor: rgba(0, 0, 0, 1)
 backgroundColor: rgba(0, 0, 0, 1)
 startUrl: /

@@ -1,0 +1,57 @@
+{
+  "EARLY": {
+    "code": "EARLY",
+    "description": "Testing early",
+    "expiresAt": "2050-10-01",
+    "maxUses": 0,
+    "usedCount": 0,
+    "isActive": true,
+    "createdBy": "Todd",
+    "accessLevel": "premium",
+    "features": []
+  },
+  "FOREHEAD": {
+    "code": "FOREHEAD",
+    "description": "Matt Gaetz Forehead - free premium",
+    "expiresAt": "2030-08-12",
+    "maxUses": 0,
+    "usedCount": 0,
+    "isActive": true,
+    "createdBy": "Todd",
+    "accessLevel": "premium",
+    "features": []
+  },
+  "SNAGZ": {
+    "code": "SNAGZ",
+    "description": "SNAGZ - free premium",
+    "expiresAt": "2030-08-12",
+    "maxUses": 0,
+    "usedCount": 0,
+    "isActive": true,
+    "createdBy": "Todd",
+    "accessLevel": "premium",
+    "features": []
+  },
+  "TODD": {
+    "code": "TODD",
+    "description": "TODD access",
+    "expiresAt": "2033-03-03",
+    "maxUses": 0,
+    "usedCount": 0,
+    "isActive": true,
+    "createdBy": "Todd",
+    "accessLevel": "unlimited",
+    "features": []
+  },
+  "UNLIMITED": {
+    "code": "UNLIMITED",
+    "description": "Unlimited free",
+    "expiresAt": "2030-01-01",
+    "maxUses": 0,
+    "usedCount": 0,
+    "isActive": true,
+    "createdBy": "todd",
+    "accessLevel": "unlimited",
+    "features": []
+  }
+}

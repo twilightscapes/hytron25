@@ -1,0 +1,9 @@
+code: UNLIMITED
+description: Unlimited free
+expiresAt: 2030-01-01
+maxUses: 0
+usedCount: 0
+isActive: true
+createdBy: todd
+accessLevel: unlimited
+features: []

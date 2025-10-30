@@ -72,14 +72,18 @@ class="absolute start-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 scal
 			button.addEventListener(
 				"click",
 				() => {
-					const newTheme = rootInDarkMode() ? "light" : "dark";
+					const isDarkMode = rootInDarkMode();
+					const currentTheme = isDarkMode ? "dark" : "light";
+					const newTheme = isDarkMode ? "light" : "dark";
+					
 					let themeChangeEvent = new CustomEvent("theme-change", {
 						detail: {
 							theme: newTheme,
 						},
 					});
 					document.dispatchEvent(themeChangeEvent);
-					button.setAttribute("aria-checked", String(!rootInDarkMode()));
+					
+					button.setAttribute("aria-checked", String(!isDarkMode));
 				},
 				{ signal }
 			);

@@ -1,24 +1,96 @@
 ---
 import ThemeToggle from "../ThemeToggle.astro";
 import Search from "../Search.astro";
-import Switch from "@/components/Switch.jsx";
-import BlueCheck from "@/components/BlueCheck.astro";
-import { getEntry } from 'astro:content';
-import { getMenuLinks, siteConfig } from "@/site-config";
+import { getEntry, getCollection } from 'astro:content';
+import { siteConfig } from "@/site-config";
 import GoBack from "@/components/GoBack.astro";
-const siteSettings = await getEntry('siteSettings', 'main');
-const { showHeader, showLogo, showTheme, showSearch, showSwitch, showHome, logoImage, defaultView, showCheck } = siteSettings.data;
-const language = await getEntry('language', 'index');
 
-const styleAppearance = await getEntry('styleapps', 'index');
-const { backgroundImage } = styleAppearance.data;
-const { backgroundVideo } = styleAppearance.data;
+// Add default values
+let showHeader = true;
+let showLogo = true;
+let showTheme = true;
+let showSearch = true;
+let showSwitch = true;
+let showHome = true;
+let logoImage = '';
+let defaultView = 'grid';
+let showCheck = false;
+let backgroundImage = '';
+let backgroundVideo = '';
+let topText = 'Top';
+let menuLinks: { title: string; path: string }[] = [];
+
+
+
+try {
+  const siteSettings = await getEntry('siteSettings', 'main');
+  const language = await getEntry('language', 'index');
+  const styleapps = await getEntry('styleapps', 'index');
+  
+  // Get menu items and sort them by order (handle empty collection)
+  let menuLinks: Array<{title: string, path: string}> = [];
+  try {
+    const menuItems = await getCollection('menuItems');
+    menuLinks = menuItems
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+      .map(item => ({
+        title: item.data.title || '',
+        path: item.data.path || '/',
+      }));
+  } catch (error) {
+    // Collection doesn't exist or is empty, use empty array
+    menuLinks = [];
+  }
+
+  if (siteSettings?.data) {
+    ({ 
+      showHeader = true, 
+      showLogo = true, 
+      showTheme = true, 
+      showSearch = true, 
+      showSwitch = true, 
+      showHome = true, 
+      logoImage = '', 
+      defaultView = 'grid', 
+    } = siteSettings.data);
+  }
+
+  if (styleapps?.data) {
+    backgroundImage = styleapps.data.backgroundImage ?? '';
+    backgroundVideo = styleapps.data.backgroundVideo ?? '';
+  }
+
+  if (language?.data) {
+    topText = language.data.top ?? 'Top';
+  }
+} catch (error) {
+  console.error('Error loading content:', error);
+}
 
 const url = new URL(Astro.request.url);
-const menuLinks = await getMenuLinks();
+
+
 ---
 
 
+<style>
+
+  @media all and (display-mode: browser) {
+        .pwaonly {
+          position:absolute;
+          left:-9999px;
+          visibility: hidden;
+        }
+    }
+    
+@media all and (display-mode: standalone) {
+        .pwaonly {
+          display:flex; flex-direction: row;
+        }
+    }
+
+.pwa-button{display:flex; justify-content: center;}
+</style>
 
 
 {showHeader && (
@@ -63,9 +135,55 @@ const menuLinks = await getMenuLinks();
 )}
 
 
-<div id="missioncontrol" class="missioncontrol1 sitecontrols flex justify-center items-center panel" style="padding-right:2vw; gap:3vw;">
-  
-  <!-- {showCheck && <div style="position:absolute; bottom:1vh; left: 1vw; opacity:.2;"><BlueCheck /></div>} -->
+
+<div id="missioncontrol" class="missioncontrol1 sitecontrols flex items-center panel" style="padding:0 2vw 1vh 2vw; gap:3vw;">
+
+<div class="pwaonly" style="display:flex; flex-direction: row; gap:1vw; padding-right:2vw;">
+  <button
+    id="twitch-pwa-btn"
+    aria-label="Open Twitch"
+    title="Open Twitch"
+    name="Open Twitch"
+    class="pwa-button flex h-10 w-10 items-center justify-center rounded-md ring-zinc-400 transition-all hover:ring-2"
+    style="transition: opacity 0.3s ease; flex-direction: column;"
+  ><a href="https://twitch.com" title="Open Twitch" name="Open Twitch" aria-label="Open Twitch">
+    <svg aria-label="Open Twitch" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+    </svg>
+    <span style="font-size:8px;">Twitch</span></a>
+  </button>
+
+
+  <button
+    id="tictok-pwa-btn"
+    aria-label="Open TikTok"
+    title="Open TikTok"
+    name="Open TikTok"
+class="pwa-button flex h-10 w-10 items-center justify-center rounded-md ring-zinc-400 transition-all hover:ring-2"
+    style="transition: opacity 0.3s ease; flex-direction: column;"
+  >
+  <a href="https://tiktok.com" title="Open TikTok" name="Open TikTok" aria-label="Open TikTok">
+    <svg aria-label="Open TikTok" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+    </svg>
+    <span style="font-size:8px;">TikTok</span></a>
+  </button>
+
+<button
+    id="youtube-pwa-btn"
+    aria-label="Open YouTube"
+    title="Open YouTube"
+    name="Open YouTube"
+class="pwa-button flex h-10 w-10 items-center justify-center rounded-md ring-zinc-400 transition-all hover:ring-2"
+    style="transition: opacity 0.3s ease; flex-direction: column; justify-content: center; align-items: center; align-content: center"
+  ><a href="https://youtube.com" title="Open YouTube" name="Open YouTube" aria-label="Open YouTube">
+    <svg aria-label="Open YouTube" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+    <span style="font-size:8px;">YouTube</span></a>
+  </button>
+
+</div>
   
   {showHome && (
     <button
@@ -78,8 +196,10 @@ const menuLinks = await getMenuLinks();
     )}
 
   {showTheme && <ThemeToggle style="margin-left:1vw;" />}
+
   {showSearch && <Search />}
-  {showSwitch && <Switch client:load defaultView={defaultView} />}
+
+  
 
   
 
@@ -91,13 +211,13 @@ const menuLinks = await getMenuLinks();
 
 <button
 aria-label="Back to Top"
-class="backup z-90 bottom-0 fixed end-2 flex h-10 w-10 translate-y-24 items-center justify-center rounded-md ring-zinc-400 hover:ring-2 opacity-0 transition-all duration-300 hover:border-zinc-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-85 sm:end-2 sm:h-10 sm:w-10 topper"
+class="backup z-90 bottom-1vh fixed end-2 flex h-10 w-10 translate-y-24 items-center justify-center rounded-md ring-zinc-400 hover:ring-2 opacity-0 transition-all duration-300 hover:border-zinc-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-85 sm:end-2 sm:h-10 sm:w-10 topper"
 data-show="false"
 id="to-top-btn"
 style="flex-direction: column;"
 >
 <svg  class="w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M14 20h-4v-9l-3.5 3.5l-2.42-2.42L12 4.16l7.92 7.92l-2.42 2.42L14 11z"/></svg>
-<span class="--theme-header" style="font-size:10px; font-weight: bold;">{language.data.top}</span>
+<span class="--theme-header" style="font-size:10px; font-weight: bold;">{topText}</span>
 </button>
 
 </div>
@@ -154,4 +274,3 @@ style="flex-direction: column;"
   // Re-initialize after each page navigation
   document.addEventListener('astro:after-swap', initializeBackToTopButton);
 </script>
-

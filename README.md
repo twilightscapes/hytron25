@@ -7,10 +7,12 @@
   
   <!-- Badges -->
   <p>
-    <img src="https://img.shields.io/badge/Astro-4.0-FF5D01?logo=astro" alt="Astro 4">
+    <img src="https://img.shields.io/badge/Astro-5.0-FF5D01?logo=astro" alt="Astro 5">
     <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript" alt="TypeScript 5">
-    <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react" alt="React 18">
+    <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react" alt="React 19">
     <img src="https://img.shields.io/badge/PWA-Enabled-5A0FC8?logo=pwa" alt="PWA Enabled">
+    <img src="https://img.shields.io/badge/Tailwind-5" alt="Tailwind 5">
+
   </p>
   
   <!-- CTAs -->
@@ -66,7 +68,7 @@ Setup takes about 4 minutes and <strong><i>requires a valid email address</i></s
 </div>
 
 ### 🚀 Modern Foundation
-- **Next-Gen Architecture**: Built with Astro v4 + TypeScript 5 + React 18
+- **Next-Gen Architecture**: Built with Astro v5 + TypeScript 5 + Tailwind 6
 - **Performance First**: 100/100 PageSpeed scores out of the box
 - **PWA Ready**: Install as native app with offline support
 
@@ -114,9 +116,15 @@ PIRATE is built on industry leading technologies, and is designed from the groun
 - All set up and control is done through the built-in CMS. 
 - In order to to do so online, you will need to create a free account @ [KeyStatic Cloud](https://keystatic.cloud)
 - Connect your Keystatic account to your Github repo
-<!-- - Copy/paste the Keystatic project settings into your Netlify Env Variables -->
-- Copy and Paste the Keystatic Cloud project settings you are given into this file:     [https://github.com/YourGitAccount/YourRepo/edit/main/keystatic.config.ts](https://github.com/piratewebsite/pirate/edit/main/keystatic.config.ts)
-Edit this file on line 7 - replace "yourproject/projectid" with your project settings from Keystatic Cloud.
+- Set up your environment variables:
+  - **Local Development**: Copy your Keystatic project ID (format: `username/project-name`) and add it to your `.env` file:
+    ```bash
+    VITE_KEYSTATIC_PROJECT=your-username/your-project-name
+    ```
+  - **Netlify Deployment**: Go to your Netlify dashboard → Site settings → Environment variables and add:
+    ```
+    VITE_KEYSTATIC_PROJECT = your-username/your-project-name
+    ```
 - Redeploy your site on Netlify and then go to yoursite.netlify.app/admin to login to the CMS and configure the rest of your site.
 
 ## Using Local Development
@@ -176,10 +184,6 @@ pnpm clean
 
 
 
-
-## Acknowledgment
-
-This theme was heavily inspired by [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus/)
 
 ## 🏴‍☠️ Thank you
 

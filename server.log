@@ -1,0 +1,43 @@
+
+> pirate@1.0.0 dev /Users/toddlambert/Sites/adblock
+> astro dev "--host"
+
+21:41:15 [@astrojs/netlify] Enabling sessions with Netlify Blobs
+21:41:15 [vite] Environment loaded
+21:41:15 [vite] Middleware loaded. Emulating features: blobs, edgeFunctions, environmentVariables, functions, headers, images, redirects, static.
+21:41:15 [vite] 💭 Linking this project to a Netlify site lets you deploy your site, use any environment variables defined on your team and site and much more. Run [96mnpx netlify init[39m to get started.
+21:41:15 [types] Generated 0ms
+21:41:15 [content] Syncing content
+21:41:15 [content] Astro config changed
+21:41:15 [content] Clearing content store
+21:41:15 [WARN] [glob-loader] No files found matching "**/*{.json,.yaml,.yml,.toml},!**/_*/**/*{.json,.yaml,.yml,.toml},!**/_*{.json,.yaml,.yml,.toml}" in directory "src/content/menuItems"
+21:41:15 [content] Synced content
+
+ astro  v5.12.0 ready in 1597 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  http://192.168.0.182:4321/
+
+▶ vite.server.fs.strict has been disabled!
+  Files on your machine are likely accessible on your network.
+
+21:41:15 watching for file changes...
+21:41:16 [vite] ✨ optimized dependencies changed. reloading
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read EIO
+    at TTY.onStreamRead (node:internal/stream_base_commons:216:20)
+Emitted 'error' event on Interface instance at:
+    at ReadStream.onerror (node:internal/readline/interface:238:10)
+    at ReadStream.emit (node:events:518:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  errno: -5,
+  code: 'EIO',
+  syscall: 'read'
+}
+
+Node.js v22.11.0

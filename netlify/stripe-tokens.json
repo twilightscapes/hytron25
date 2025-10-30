@@ -1,0 +1,17 @@
+{
+  "stripe_test_user_example_com_123456": {
+    "code": "stripe_test_user_example_com_123456",
+    "email": "test@example.com",
+    "description": "Stripe purchase - unlimited plan",
+    "expiresAt": "2099-12-31",
+    "maxUses": 1,
+    "usedCount": 0,
+    "isActive": true,
+    "createdBy": "Stripe",
+    "accessLevel": "unlimited",
+    "features": [],
+    "stripeSessionId": "cs_test_123456",
+    "purchaseDate": "2024-01-15T10:30:00.000Z",
+    "plan": "unlimited"
+  }
+}

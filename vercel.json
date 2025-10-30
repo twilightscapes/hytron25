@@ -6,5 +6,5 @@
     }
   },
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm build"
+  "buildCommand": "pnpm run build:vercel"
 }

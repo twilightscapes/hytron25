@@ -1,0 +1,18 @@
+slug: news channels
+title: News Channels
+channelIds:
+  - UCupvZG-5ko_eiXAupbDfxWw
+  - UCaXkIU1QidjPwiAYu6GcHjg
+  - UCeY0bbntWzzVIaj2z3QigXg
+  - UC16niRr50-MSBwiO3YDb3RA
+  - UCBi2mrWuNuyYy4gbM6fU18Q
+  - UC8p1vwvWtl6T73JiExfWs1g
+  - UCJjSDX-jUChzOEyok9XYRJQ
+  - UC6ZFN9Tx6xh-skXCuRHCDpQ
+  - UCPWXiRWZ29zrxPFIQT7eHSA
+maxVideos: 6
+showTitles: true
+showSectionTitle: true
+defaultView: grid
+includeSitePosts: true
+maxSitePosts: 1
